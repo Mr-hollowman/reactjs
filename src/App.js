@@ -5,14 +5,51 @@ import Products from './joeskitchen.js/Products'
 import { Route, Routes } from 'react-router-dom'
 
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 // import Parent from './Parent'
 // import Child from './Child'
 export default function App() {
   const [cartItems, setCartItems] = useState([])
+  const [products, setProducts] = useState([]);
+  const [isPending, setIsPending] = useState(true);
 
-  console.log(cartItems,"cart items");
+
+  useEffect(() => {
+    response()
+  }, []
+  )
+  const response = () => {
+    setTimeout(() => {
+      axios("https://www.app.tutorjoes.in/mobile/getAllFood")
+        .then(res => {
+          setProducts(res.data.items);
+          setIsPending(false);
+        })
+    }, 1000);
+  }
+
+  const handleFavourite = (ID) => {
+    const newFavourites = products.map(e => {
+      return e.ID === ID ? { ...e, fav: !e.fav } : e;
+    });
+    setProducts(newFavourites)
+  }
+  
+  const checkIsCart = (Item) => {
+    const inACart = cartItems.find((item) => item.ID === Item.ID)
+    return inACart
+  }
+
+  const AddtoCart = (Item) => {
+    const inACart = checkIsCart(Item)
+    if (!inACart) {
+      setCartItems((prev) => ([...prev, Item]))
+    }
+  }
+
+
 return (
     <div>
         <Navbar/>
@@ -21,7 +58,7 @@ return (
         <Routes>
           <Route path="/" element={<></>}></Route>
           <Route path="/products" element={<Products/>}></Route>
-          <Route path="/products/:id" element={<Products setCartItems={setCartItems} cartItems={cartItems} />}/>
+          <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart = {checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />}/>
         </Routes>
         
         {/* <Parent/>

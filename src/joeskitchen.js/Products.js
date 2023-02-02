@@ -3,46 +3,18 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
-export default function Products({ setCartItems, cartItems }) {
-  const [products, setProducts] = useState([]);
+export default function Products({ checkIsCart, AddtoCart, products, handleFavourite, isPending }) {
+  // const [products, setProducts] = useState([]);
   const { id } = useParams();
-  const [isPending, setIsPending] = useState(true);
-  const [AddCart, setAddCart] = useState([])
-
-  useEffect(() => {
-    response()
-  }, []
-  )
-  const response = () => {
-    setTimeout(() => {
-      axios("https://www.app.tutorjoes.in/mobile/getAllFood")
-        .then(res => {
-          setProducts(res.data.items);
-          setIsPending(false);
-        })
-    }, 1000);
-  }
-
-  const handleFavourite = (ID) => {
-    const newFavourites = products.map(e => {
-      return e.ID === ID ? { ...e, fav: !e.fav } : e;
-    });
-    setProducts(newFavourites)
-  }
-
-  const checkIsCart = (Item) => {
-    const inACart = cartItems.find((item) => item.ID === Item.ID)
-    return inACart
-  }
-
-  const AddtoCart = (Item) => {
-    const inACart = checkIsCart(Item)
-    if (!inACart) {
-      setCartItems((prev) => ([...prev, Item]))
-    }
-  }
+  // const [isPending, setIsPending] = useState(true);
 
 
+  // const handleFavourite = (ID) => {
+  //   const newFavourites = products.map(e => {
+  //     return e.ID === ID ? { ...e, fav: !e.fav } : e;
+  //   });
+  //   setProducts(newFavourites)
+  // }
   return (
 
     <div className="products">
