@@ -30,10 +30,16 @@ export default function Products({ setCartItems, cartItems }) {
     setProducts(newFavourites)
   }
 
+  const checkIsCart = (Item) => {
+    const inACart = cartItems.find((item) => item.ID === Item.ID)
+    return inACart
+  }
 
-  const AddtoCart = (ID) => {
-    console.log(ID, "items from cart");
-
+  const AddtoCart = (Item) => {
+    const inACart = checkIsCart(Item)
+    if (!inACart) {
+      setCartItems((prev) => ([...prev, Item]))
+    }
   }
 
 
@@ -52,10 +58,7 @@ export default function Products({ setCartItems, cartItems }) {
             <h5><span>{e.FTYPE}</span> Rs.{e.AMT}</h5>
             <button className="btn-item" onClick={() => { AddtoCart(e) }} ><i className="fa fa-shopping-cart" ></i>
               {
-                cartItems.length === 0 ? "add to cart" : cartItems.map((item) => {
-                  return item.ID === e.ID ? "In a cart" : "add to cart"
-                })
-                //  e.cart === true ? "in a cart" : "add to cart"
+                checkIsCart(e) !== undefined ? "In a cart" : "Add to cart"
               }
             </button>
             <p className='btn-fav' onClick={() => handleFavourite(e.ID)}>

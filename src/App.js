@@ -10,7 +10,7 @@ import { useState } from 'react'
 // import Parent from './Parent'
 // import Child from './Child'
 export default function App() {
-  const [cartItems, setCartItems] = useState([{empty:true}])
+  const [cartItems, setCartItems] = useState([])
 
   console.log(cartItems,"cart items");
 return (
