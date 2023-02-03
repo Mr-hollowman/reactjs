@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import CartPage from './joeskitchen.js/AddtoCart'
 
 // import Parent from './Parent'
 // import Child from './Child'
@@ -14,6 +15,7 @@ export default function App() {
   const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState([]);
   const [isPending, setIsPending] = useState(true);
+  const [isCartOpen,setIsCartOpen] = useState(false)
 
 
   useEffect(() => {
@@ -45,14 +47,12 @@ export default function App() {
   const AddtoCart = (Item) => {
     const inACart = checkIsCart(Item)
     if (!inACart) {
-      setCartItems((prev) => ([...prev, Item]))
+      setCartItems((prev) => ([...prev, {...Item, QTY:1}]))
     }
   }
-
-
 return (
     <div>
-        <Navbar/>
+        <Navbar setIsCartOpen={setIsCartOpen}/>
         <Slider/>
         <MenuItem />
         <Routes>
@@ -60,7 +60,7 @@ return (
           <Route path="/products" element={<Products/>}></Route>
           <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart = {checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />}/>
         </Routes>
-        
+        {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}
         {/* <Parent/>
         <Child/> */}
         

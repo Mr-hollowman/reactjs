@@ -13,17 +13,7 @@ const Goods  = (props) => {
       setIsWishAdd(!isWishAdd);
     }
   
-    const wishCountHandler = () => {
-      wishAddHandler()
-      if (!isWishAdd) {
-        setWishCount(wishCount +1)
-        fetch(`https://27.96.131.85:8443/api/likeBoards/${boards.id}`, {
-          credentials: 'include',
-          method: "POST",
-          body: JSON.stringify({
-           "liked": true
-          }),
-        })
+    
         alert("찜 목록에 추가되었습니다.")
         console.log(boards)
         console.log("count+1")
@@ -96,9 +86,9 @@ const Goods  = (props) => {
   
             <div className="goodsBtn">
               <span className="zzimBtn">
-                <button class="btn btn-primary" type="submit" onClick={wishCountHandler}>찜 하기</button>
+                <button className="btn btn-primary" type="submit" onClick={wishCountHandler}>찜 하기</button>
               </span>
-              <button class="btn btn-primary" type="submit">판매자와 대화</button>
+              <button className="btn btn-primary" type="submit">판매자와 대화</button>
             </div>
           </div>
         </div>

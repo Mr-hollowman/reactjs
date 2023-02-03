@@ -276,13 +276,14 @@ text-decoration: none;
     z-index: 2;
   }
 
-  .cart-overlay-close{
+  /* .cart-overlay-close{
     visibility: hidden;
   }
 
   .cart-overlay-show{
     visibility: visible;
-  }
+  } */
+
   .cart{
       height:75vh;
       width: 75vh;
