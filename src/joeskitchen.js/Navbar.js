@@ -2,11 +2,7 @@ import React from 'react'
 
 export default function Navbar({ setIsCartOpen, cartItems }) {
   const cartValues = () => {
-    const count = cartItems.reduce((acc, crr) => {
-      let count = acc + parseInt(crr.QTY)
-      return count
-    }, 0)
-    return count
+    return cartItems.reduce((acc, curr) => acc + parseInt(curr.QTY), 0)
   }
   return (
     <div className="navbar">
