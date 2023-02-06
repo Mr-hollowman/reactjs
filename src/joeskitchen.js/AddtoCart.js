@@ -1,4 +1,4 @@
-import React from 'react'
+import emptyCart from "./empty-cart2.gif"
 function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
 
   const handleIncrement = (item, variant) => {
@@ -48,7 +48,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
           </div>
         })}
         {totalAmoutDisplay() !== 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
-        {totalAmoutDisplay() === 0 && <h4>Hey User, Nothing is in your cart, please add someting to eat</h4>}
+        {totalAmoutDisplay() === 0 && <img className="empty-cart" src={emptyCart} alt="cart is empty"/>}
       </div>
     </div>
   )
