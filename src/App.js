@@ -13,7 +13,7 @@ export default function App() {
   const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState([]);
   const [isPending, setIsPending] = useState(true);
-  const [isCartOpen,setIsCartOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function App() {
     });
     setProducts(newFavourites)
   }
-  
+
   const checkIsCart = (Item) => {
     const inACart = cartItems.find((item) => item.ID === Item.ID)
     return inACart
@@ -45,23 +45,23 @@ export default function App() {
   const AddtoCart = (Item) => {
     const inACart = checkIsCart(Item)
     if (!inACart) {
-      setCartItems((prev) => ([...prev, {...Item, QTY:1}]))
+      setCartItems((prev) => ([...prev, { ...Item, QTY: 1 }]))
     }
-    else{
+    else {
       alert("item is already in a cart")
     }
   }
-return (
+  return (
     <div>
-        <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
-        <Slider/>
-        <MenuItem />
-        <Routes>
-          <Route path="/" element={<></>}></Route>
-          <Route path="/products" element={<Products/>}></Route>
-          <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart = {checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />}/>
-        </Routes>
-        {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}        
+      <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
+      <Slider />
+      <MenuItem />
+      <Routes>
+        <Route path="/" element={<></>}></Route>
+        <Route path="/products" element={<Products />}></Route>
+        <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />} />
+      </Routes>
+      {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}
     </div>
   )
 }

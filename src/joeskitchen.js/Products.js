@@ -1,20 +1,8 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
 export default function Products({ checkIsCart, AddtoCart, products, handleFavourite, isPending }) {
-  // const [products, setProducts] = useState([]);
   const { id } = useParams();
-  // const [isPending, setIsPending] = useState(true);
-
-
-  // const handleFavourite = (ID) => {
-  //   const newFavourites = products.map(e => {
-  //     return e.ID === ID ? { ...e, fav: !e.fav } : e;
-  //   });
-  //   setProducts(newFavourites)
-  // }
   return (
 
     <div className="products">
