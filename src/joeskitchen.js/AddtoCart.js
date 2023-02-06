@@ -24,7 +24,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
   const totalAmoutDisplay = () => {
     const totalAmout = cartItems.map((a) => ({ amout: a.AMT, quantity: a.QTY }))
     const amt = totalAmout.reduce((acc, curr) => {
-      let amt = acc + parseInt(curr.amout)
+      let amt = acc + (parseInt(curr.amout) * parseInt(curr.quantity))
       return amt
     }, 0)
     return amt
