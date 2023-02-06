@@ -13,7 +13,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
         return ite.ID === item.ID && ite.QTY !== 0 ? { ...ite, QTY: ite.QTY -= 1 } : ite
       })
     }
-    newCart = cartItems.filter(ite => ite.QTY !== 0)
+    newCart = newCart.filter(ite => ite.QTY !== 0)
     setCartItems(newCart);
   }
 
