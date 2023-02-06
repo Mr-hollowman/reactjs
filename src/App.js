@@ -9,8 +9,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CartPage from './joeskitchen.js/AddtoCart'
 
-// import Parent from './Parent'
-// import Child from './Child'
 export default function App() {
   const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState([]);
@@ -49,6 +47,9 @@ export default function App() {
     if (!inACart) {
       setCartItems((prev) => ([...prev, {...Item, QTY:1}]))
     }
+    else{
+      alert("item is already in a cart")
+    }
   }
 return (
     <div>
@@ -60,10 +61,7 @@ return (
           <Route path="/products" element={<Products/>}></Route>
           <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart = {checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />}/>
         </Routes>
-        {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}
-        {/* <Parent/>
-        <Child/> */}
-        
+        {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}        
     </div>
   )
 }
