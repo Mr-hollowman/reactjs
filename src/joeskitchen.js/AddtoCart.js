@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
 
   const handleIncrement = (item, variant) => {
@@ -10,10 +10,10 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
     }
     else {
       newCart = cartItems.map((ite) => {
-        return ite.ID === item.ID && ite.QTY != 0 ? { ...ite, QTY: ite.QTY -= 1 } : ite
+        return ite.ID === item.ID && ite.QTY !== 0 ? { ...ite, QTY: ite.QTY -= 1 } : ite
       })
     }
-    newCart = cartItems.filter(ite => ite.QTY != 0)
+    newCart = cartItems.filter(ite => ite.QTY !== 0)
     setCartItems(newCart);
   }
 
@@ -31,7 +31,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
         <i className='fa fa-times' onClick={() => setIsCartOpen(false)}></i>
         {cartItems.map((item, index) => {
           return <div className='cart-item' key={index}>
-            <img src={`https://www.app.tutorjoes.in/img/food/${item.PIC}`} />
+            <img src={`https://www.app.tutorjoes.in/img/food/${item.PIC}`} alt={"food"} />
             <div>
               <h4>{item.NAME}</h4>
               <h5>Rs {item.AMT}</h5>
@@ -47,7 +47,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
             </div>
           </div>
         })}
-        {totalAmoutDisplay() != 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
+        {totalAmoutDisplay() !== 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
         {totalAmoutDisplay() === 0 && <h4>Hey User, Nothing is in your cart, please add someting to eat</h4>}
       </div>
     </div>

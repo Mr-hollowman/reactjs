@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Navbar({ setIsCartOpen, cartItems }) {
   const cartValues = () => {
     return cartItems.reduce((acc, curr) => acc + parseInt(curr.QTY), 0)
