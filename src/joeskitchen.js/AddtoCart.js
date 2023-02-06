@@ -28,7 +28,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
   return (
     <div className='cart-overlay'>
       <div className='cart'>
-        <i className='fa fa-times' onClick={() => setIsCartOpen(false)}></i>
+        <i className='fa fa-times cart-close-icon' onClick={() => setIsCartOpen(false)}></i>
         {cartItems.map((item, index) => {
           return <div className='cart-item' key={index}>
             <img src={`https://www.app.tutorjoes.in/img/food/${item.PIC}`} alt={"food"} />

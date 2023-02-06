@@ -55,8 +55,8 @@ body {
 
 .cart-items {
   position: absolute;
-  top: -5;
-  right: 10;
+  top: -5%;
+  right: 15%;
   font-size: 15px;
   background-color: var(--color-3);
   color: var(--color-4);
@@ -311,6 +311,7 @@ body {
 }
 
 .cart {
+  height: 75vh;
   width: 75vh;
   margin: 100px auto;
   background-color: var(--color-4);
@@ -393,5 +394,9 @@ body {
 }
 
 .empty-cart {
-  width: 98%;
+  margin-top: 10px;
+  width: 95%;
+}
+.cart-close-icon{
+  float: right;
 }
