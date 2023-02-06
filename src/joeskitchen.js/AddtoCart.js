@@ -40,6 +40,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
             <div>
               <h4>{item.NAME}</h4>
               <h5>Rs {item.AMT}</h5>
+              <h5>{(parseInt(item.AMT) * parseInt(item.QTY))}</h5>
               <span className="remove-item" onClick={() => handleRemove(item)} >remove</span>
             </div>
             <div>

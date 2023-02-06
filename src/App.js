@@ -53,7 +53,7 @@ export default function App() {
   }
 return (
     <div>
-        <Navbar setIsCartOpen={setIsCartOpen}/>
+        <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
         <Slider/>
         <MenuItem />
         <Routes>
