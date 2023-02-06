@@ -51,7 +51,8 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
             </div>
           </div>
         })}
-        <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>
+        {totalAmoutDisplay() != 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
+        {totalAmoutDisplay() === 0 && <h4>Hey User, Nothing is in your cart, please add someting to eat</h4>}
       </div>
     </div>
   )
