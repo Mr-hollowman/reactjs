@@ -18,7 +18,7 @@ export default function Products({ checkIsCart, AddtoCart, products, handleFavou
             <h5><span>{e.FTYPE}</span> Rs.{e.AMT}</h5>
             <button className="btn-item" onClick={() => { AddtoCart(e) }} ><i className="fa fa-shopping-cart" ></i>
               {
-                checkIsCart(e) !== undefined ? "In a cart" : "Add to cart"
+                checkIsCart(e) !== undefined ? " In a cart" : " Add to cart"
               }
             </button>
             <p className='btn-fav' onClick={() => handleFavourite(e.ID)}>
