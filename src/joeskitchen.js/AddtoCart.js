@@ -34,8 +34,8 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
             <img src={`https://www.app.tutorjoes.in/img/food/${item.PIC}`} alt={"food"} />
             <div>
               <h4>{item.NAME}</h4>
-              <h5>Rs {item.AMT}</h5>
-              <h5>{(parseInt(item.AMT) * parseInt(item.QTY))}</h5>
+              <h5>Item Price: Rs {item.AMT}</h5>
+              <h5>Total Price for This Item: Rs {(parseInt(item.AMT) * parseInt(item.QTY))}</h5>
               <span className="remove-item" onClick={() => handleRemove(item)} >remove</span>
             </div>
             <div>
@@ -47,8 +47,11 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
             </div>
           </div>
         })}
-        {totalAmoutDisplay() !== 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
-        {totalAmoutDisplay() === 0 && <img className="empty-cart" src={emptyCart} alt="cart is empty"/>}
+        <div className="cart-center">
+          {totalAmoutDisplay() !== 0 && <h4>Total Amount : Rs.{totalAmoutDisplay()}</h4>}
+          {cartItems.length >= 1 && <button className="btn btn-clear-cart" onClick={() => setCartItems([])}>clear Cart</button>}
+        </div>
+        {totalAmoutDisplay() === 0 && <img className="empty-cart" src={emptyCart} alt="cart is empty" />}
       </div>
     </div>
   )
