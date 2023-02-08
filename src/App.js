@@ -23,15 +23,22 @@ export default function App() {
   const response = () => {
     setTimeout(() => {
       axios("https://www.app.tutorjoes.in/mobile/getAllFood")
-        .then(res => {
-          setProducts(res.data.items);
-          setIsPending(false);
+      .then(res => {
+        setProducts(res.data.items);
+        setIsPending(false);
+        console.log(products);
         })
     }, 1000);
   }
 
-  const handleFavourite = (ID) => {
+  const handleFavourite = async (ID) => {
     const newFavourites = products.map(e => {
+      if(e.ID === ID){
+        let existingItem = JSON.parse(localStorage.getItem("fav"))
+        const newFav = [...existingItem]
+        newFav.push(ID)
+        localStorage.setItem("fav", JSON.stringify(newFav));
+      }
       return e.ID === ID ? { ...e, fav: !e.fav } : e;
     });
     setProducts(newFavourites)

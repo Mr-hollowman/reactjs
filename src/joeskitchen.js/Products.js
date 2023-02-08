@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 export default function Products({ checkIsCart, AddtoCart, products, handleFavourite, isPending }) {
   const { id } = useParams();
+  let fav = JSON.parse(localStorage.getItem("fav"))
   return (
-
     <div className="products">
       {isPending === true ? <h3 id="txtFoodType"> Loading...</h3> : <h3 id="txtFoodType">{id}</h3>}
       <div className="products-container">
-        {products.filter(products => id === undefined ? products : id === "Latest" ? products.LATEST === "Yes" : id === "Favourite" ? products.fav : products.FTYPE === id).map((e) => {
+        {products.filter(products => id === "Favourite" ? fav.includes(products.ID) : id === undefined ? products : id === "Latest" ? products.LATEST === "Yes" : products.FTYPE === id).map((e) => {
           return <div key={e.ID} className="product">
             <div className="img-container">
               <img src={`https://www.app.tutorjoes.in/img/food/${e.PIC}`} alt="{e.NAME}" className="product-img" />
