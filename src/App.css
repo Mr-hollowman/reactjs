@@ -398,13 +398,41 @@ body {
   width: 95%;
 }
 
-.cart-close-icon{
+.cart-close-icon {
   float: right;
 }
 
-.cart-center{
+.cart-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
+
+
+/* ------------------login signup -------------------------- */
+
+.auth-form {
+  /* max-width: 360px;
+  margin: 60px auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+  background: #fff; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-container {
+  max-width: 360px;
+  margin: 15% auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+/* ----------------------------------------------------------- */

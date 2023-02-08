@@ -2,19 +2,20 @@ import Slider from './joeskitchen.js/Slider'
 import Navbar from './joeskitchen.js/Navbar'
 import MenuItem from './joeskitchen.js/MenuItem'
 import Products from './joeskitchen.js/Products'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, redirect } from 'react-router-dom'
 
 import './App.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CartPage from './joeskitchen.js/AddtoCart'
+import Login from './pages/Login'
 
 export default function App() {
   const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false)
-
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     response()
@@ -53,13 +54,12 @@ export default function App() {
   }
   return (
     <div>
-      <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
-      <Slider />
-      <MenuItem />
+      {user && <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />}
+      {user && <Slider />}
+      {user && <MenuItem />}
       <Routes>
-        <Route path="/" element={<></>}></Route>
-        <Route path="/products" element={<Products />}></Route>
-        <Route path="/products/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />} />
+        {!user && <Route path="/login" element={<Login setUser={setUser} />}></Route>}
+        {user && <Route path='/products/:id' element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />} />}
       </Routes>
       {isCartOpen && <CartPage cartItems={cartItems} setCartItems={setCartItems} setIsCartOpen={setIsCartOpen} />}
     </div>
