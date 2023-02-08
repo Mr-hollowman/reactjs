@@ -58,6 +58,7 @@ export default function App() {
       {user && <Slider />}
       {user && <MenuItem />}
       <Routes>
+      <Route path="/" element={<Login setUser={setUser} />}></Route>
         {!user && <Route path="/login" element={<Login setUser={setUser} />}></Route>}
         {user && <Route path='/products/:id' element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />} />}
       </Routes>
