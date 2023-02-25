@@ -6,9 +6,9 @@ export default function Products({ checkIsCart, AddtoCart, products, handleFavou
   return (
 
     <div className="products">
-      {isPending === true ? <h3 id="txtType"> Loading...</h3> : <h3 id="txtType">{id}</h3>}
+      {isPending === true ? <h3 id="txtType"> Loading...</h3> : <h3 id="txtType">{id === undefined ? "All Products": id}</h3>}
       <div className="products-container">
-        {products.filter(products => id === undefined ? products :  id === "Favourite" ? products.fav : products.category === id).map((e) => {
+        {products.filter(products => id === undefined || "All Products" ? products :  id === "Favourite" ? products.fav : products.category === id).map((e) => {
           return <div key={e.id} className="product">
             <div className="img-container">
               <img src={e.image} alt="{e.title}" className="product-img" />

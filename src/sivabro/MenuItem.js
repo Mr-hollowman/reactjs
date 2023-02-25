@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 export default function MenuItem() {
 
-  const foods = ["women's clothing", "electronics", "jewelery", "men's clothing", "Favourite"];
+  const foods = ["All Products", "women's clothing", "electronics", "jewelery", "men's clothing", "Favourite"];
 
   return (
     <div className="menu-item">
