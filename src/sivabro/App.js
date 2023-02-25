@@ -58,7 +58,6 @@ export default function App() {
       <Slider />
       <MenuItem />
       <Routes>
-        {/* <Route path="/" element={<></>}></Route> */}
         <Route path="/" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />}></Route>
         <Route path="/:id" element={<Products setCartItems={setCartItems} AddtoCart={AddtoCart} checkIsCart={checkIsCart} cartItems={cartItems} products={products} handleFavourite={handleFavourite} isPending={isPending} />} />
       </Routes>
