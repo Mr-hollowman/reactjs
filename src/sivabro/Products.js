@@ -6,12 +6,12 @@ export default function Products({ checkIsCart, AddtoCart, products, handleFavou
   return (
 
     <div className="products">
-      {isPending === true ? <h3 id="txtFoodType"> Loading...</h3> : <h3 id="txtFoodType">{id}</h3>}
+      {isPending === true ? <h3 id="txtType"> Loading...</h3> : <h3 id="txtType">{id}</h3>}
       <div className="products-container">
         {products.filter(products => id === undefined ? products :  id === "Favourite" ? products.fav : products.category === id).map((e) => {
           return <div key={e.id} className="product">
             <div className="img-container">
-              <img src={e.image} alt="{e.NAME}" className="product-img" />
+              <img src={e.image} alt="{e.title}" className="product-img" />
             </div>
             <h3>{e.title}</h3>
             <h5><span>{e.category}</span> Rs.{e.price}</h5>
