@@ -21,7 +21,7 @@ export default function Products({ checkIsCart, AddtoCart, products, handleFavou
               }
             </button>
             <p className='btn-fav' onClick={() => handleFavourite(e.id)}>
-              {e.fav === true ? <i className="fa fa-heart" style={{ color: "red" }}></i> : <i className="fa fa-heart" style={{color:"wheat"}}></i>}</p>
+              {e.fav === true ? <i className="fa fa-heart" style={{ color: "red" }}></i> : <i className="fa fa-heart"></i>}</p>
           </div>
         })}
       </div>

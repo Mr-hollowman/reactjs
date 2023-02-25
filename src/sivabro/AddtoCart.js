@@ -31,7 +31,7 @@ function CartPage({ cartItems, setCartItems, setIsCartOpen }) {
         <i className='fa fa-times cart-close-icon' onClick={() => setIsCartOpen(false)}></i>
         {cartItems.map((item, index) => {
           return <div className='cart-item' key={index}>
-            <img src={item.image} alt={"food"} />
+            <img src={item.image} alt={"item image"} />
             <div>
               <h4>{item.title}</h4>
               <h5>Item Price: Rs {item.price}</h5>

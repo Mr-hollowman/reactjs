@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
 /*  brand-banner */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-/* Food Type*/
+/* item Type*/
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 :root {
@@ -241,7 +241,7 @@ body {
   text-shadow: 2px 1px 1px var(--color-4);
 }
 
-/* Food Type*/
+/* item Type*/
 .product span {
   color: var(--color-4);
   font-weight: normal;
@@ -269,7 +269,7 @@ body {
 .btn-fav {
   border: none;
   background-color: transparent;
-  color: var(--color-4);
+  color: var(--color-3);
   font-size: 20px;
   position: absolute;
   top: 5px;
