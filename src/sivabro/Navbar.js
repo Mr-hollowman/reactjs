@@ -5,7 +5,7 @@ export default function Navbar({ setIsCartOpen, cartItems }) {
   return (
     <div className="navbar">
       <div className="navbar-banner">
-        Joe's Kitchen
+        AmazeCart
       </div>
 
       <div className="nav-cart" onClick={() => setIsCartOpen(true)}>

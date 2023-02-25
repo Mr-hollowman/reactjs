@@ -2,8 +2,8 @@ export default function Slider() {
   return (
     <div className="slider">
       <div className="brand-banner">
-        <h3>Joe's Kitchen</h3>
-        <p>Have a break Eat Fresh..!</p>
+        <h3>AmazeCart</h3>
+        <p>New Need Now..!</p>
       </div>
     </div>
   )
